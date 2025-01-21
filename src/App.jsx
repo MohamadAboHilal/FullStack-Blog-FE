@@ -1,12 +1,17 @@
 import React from "react";
-import AppRouter from "./router";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CreatePostPage from "./pages/CreatePostPage";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <AppRouter />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/create-post" element={<CreatePostPage />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
