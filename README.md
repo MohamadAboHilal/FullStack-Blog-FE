@@ -1,4 +1,4 @@
-# React + Vite
+!!! IMPORTANT MESSAGE !!!
 
 Please run the following commands after pulling this repo:
 - $ npm install react-router-dom
