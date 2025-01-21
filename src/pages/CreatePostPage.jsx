@@ -11,6 +11,7 @@ const CreatePostPage = () => {
     cover: "",
   });
 
+  const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const CreatePostPage = () => {
   // Handle post creation
   const handleCreate = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       await createPost(form); // Use the imported `createPost` function
       setForm({ author: "", title: "", content: "", cover: "" });
@@ -35,6 +37,8 @@ const CreatePostPage = () => {
     } catch (error) {
       console.error("Error creating post:", error);
       toast.error("Error creating post"); // Toast error
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -52,6 +56,7 @@ const CreatePostPage = () => {
         placeholder="Name of the Author"
         value={form.author}
         onChange={handleChange}
+        disabled={loading} // Disable input while loading
       />
       <label className="label" htmlFor="title">
         Title
@@ -64,6 +69,7 @@ const CreatePostPage = () => {
         placeholder="Title of the Post"
         value={form.title}
         onChange={handleChange}
+        disabled={loading} // Disable input while loading
         required
       />
       <label className="label" htmlFor="content">
@@ -76,6 +82,7 @@ const CreatePostPage = () => {
         placeholder="Post Content"
         value={form.content}
         onChange={handleChange}
+        disabled={loading} // Disable input while loading
         required
       />
       <label className="label" htmlFor="cover">
@@ -89,13 +96,17 @@ const CreatePostPage = () => {
         placeholder="Image Link"
         value={form.cover}
         onChange={handleChange}
+        disabled={loading} // Disable input while loading
         required
       />
       <button
-        className="btn btn-xs mt-3 sm:btn-sm md:btn-md lg:btn-lg"
+        className={`btn btn-xs mt-3 sm:btn-sm md:btn-md lg:btn-lg ${
+          loading ? "btn-disabled" : ""
+        }`}
         type="submit"
+        disabled={loading} // Disable button while loading
       >
-        Create Post
+        {loading ? "Creating..." : "Create Post"}
       </button>
     </form>
   );
