@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchPostById } from "../services/api";
 import toast from "react-hot-toast";
-import BlogCard from "../components/BlogCard";
 
 const PostDetailsPage = () => {
   const { id } = useParams();
@@ -30,8 +29,28 @@ const PostDetailsPage = () => {
   if (!post) return <div>No post found</div>; // Handle case where no post is found
 
   return (
-    <div>
-      <BlogCard post={post} detail={detail} />
+    <div className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
+      {post.cover && (
+        <figure className="max-h-64 overflow-hidden">
+          <img
+            src={post.cover}
+            alt={post.title}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.src = "https://placehold.co/600x400?text=Cover+Image";
+              e.target.alt = "Image not available";
+            }}
+          />
+        </figure>
+      )}
+      <div className="card-body p-0 pt-4">
+        <h2 className="card-title text-md font-bold">{post.title}</h2>
+        <p className="text-gray-600 text-xs">{post.content}</p>
+        <div className="card-actions justify-start mt-4">
+          <button className="btn">Edit</button>
+          <button className="btn">Delete</button>
+        </div>
+      </div>
     </div>
   );
 };
