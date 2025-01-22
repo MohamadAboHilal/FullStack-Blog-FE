@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BlogCard = ({ post }) => {
+const BlogCard = ({ post, detail }) => {
   const { id, title, content, cover } = post;
   const truncatedContent =
     content.length > 50 ? `${content.substring(0, 50)}...` : content;
@@ -23,14 +23,24 @@ const BlogCard = ({ post }) => {
       )}
       <div className="card-body p-0 pt-4">
         <h2 className="card-title text-md font-bold">{title}</h2>
-        <p className="text-gray-600 text-xs">{truncatedContent}</p>
+        <p className="text-gray-600 text-xs">
+          {detail ? content : truncatedContent}
+        </p>
         <div className="card-actions justify-start mt-4">
-          <Link
-            to={`/post/${id}`}
-            className="text-xs font-regular hover:italic"
-          >
-            Read More &#8250;
-          </Link>
+          {!detail && (
+            <Link
+              to={`/post/${id}`}
+              className="text-xs font-regular hover:italic"
+            >
+              Read More &#8250;
+            </Link>
+          )}
+          {detail && (
+            <>
+              <button className="btn">Edit</button>
+              <button className="btn">Delete</button>
+            </>
+          )}
         </div>
       </div>
     </div>
