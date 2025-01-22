@@ -43,80 +43,86 @@ const CreatePostPage = () => {
   };
 
   return (
-    <form className="form-control m-5" onSubmit={handleCreate}>
-      <h2 className="text-2xl">Create Post</h2>
-      <label className="label" htmlFor="author">
-        Author
-      </label>
-      <input
-        className="input input-bordered w-full max-w-xs"
-        id="author"
-        type="text"
-        name="author"
-        placeholder="Name of the Author"
-        value={form.author}
-        onChange={handleChange}
-        disabled={loading} // Disable input while loading
-      />
-      <label className="label" htmlFor="title">
-        Title
-      </label>
-      <input
-        className="input input-bordered w-full max-w-xs"
-        id="title"
-        type="text"
-        name="title"
-        placeholder="Title of the Post"
-        value={form.title}
-        onChange={handleChange}
-        disabled={loading} // Disable input while loading
-        required
-      />
-      <label className="label" htmlFor="content">
-        Content
-      </label>
-      <textarea
-        className="textarea textarea-bordered"
-        id="content"
-        name="content"
-        placeholder="Post Content"
-        value={form.content}
-        onChange={handleChange}
-        disabled={loading} // Disable input while loading
-        required
-      />
-      <label className="label" htmlFor="cover">
-        Cover Image
-      </label>
-      <input
-        className="input input-bordered w-full max-w-xs"
-        id="cover"
-        type="text"
-        name="cover"
-        placeholder="Image Link"
-        value={form.cover}
-        onChange={handleChange}
-        disabled={loading} // Disable input while loading
-        required
-      />
-      <button
-        className={`btn btn-xs mt-3 sm:btn-sm md:btn-md lg:btn-lg ${
-          loading ? "btn-disabled" : ""
-        }`}
-        type="submit"
-        disabled={loading} // Disable button while loading
-      >
-        {loading ? "Creating..." : "Create Post"}
-      </button>
-      <Link
-        to={"/"}
-        className={`btn btn-xs mt-3 sm:btn-sm md:btn-md lg:btn-lg ${
-          loading ? "btn-disabled" : ""
-        }`}
-      >
-        Cancel
-      </Link>
-    </form>
+    <div className="container mx-auto m-12 px-6">
+      <h2 className="text-xl font-bold mb-4 text-center">Create a Post</h2>
+      <div className="create-post-page min-h-screen flex flex-col items-center justify-center p-4">
+        <form className="form-control m-6 max-w-xl" onSubmit={handleCreate}>
+          <label className="label text-sm" htmlFor="author">
+            Author
+          </label>
+          <input
+            className="input input-bordered w-full md:w-[250%] rounded-none border-slate-700 mb-3"
+            id="author"
+            type="text"
+            name="author"
+            placeholder="Name of the Author"
+            value={form.author}
+            onChange={handleChange}
+            disabled={loading} // Disable input while loading
+          />
+          <label className="label text-sm" htmlFor="title">
+            Title
+          </label>
+          <input
+            className="input input-bordered w-full md:w-[250%] rounded-none border-slate-700 mb-3"
+            id="title"
+            type="text"
+            name="title"
+            placeholder="Title of the Post"
+            value={form.title}
+            onChange={handleChange}
+            disabled={loading} // Disable input while loading
+            required
+          />
+          <label className="label text-sm" htmlFor="content">
+            Content
+          </label>
+          <textarea
+            className="textarea textarea-bordered md:w-[250%] rounded-none border-slate-700 mb-3"
+            id="content"
+            name="content"
+            placeholder="Post Content"
+            value={form.content}
+            onChange={handleChange}
+            disabled={loading} // Disable input while loading
+            required
+          />
+          <label className="label text-sm" htmlFor="cover">
+            Cover Image
+          </label>
+          <input
+            className="input input-bordered w-full md:w-[250%] rounded-none border-slate-700 mb-3"
+            id="cover"
+            type="text"
+            name="cover"
+            placeholder="Image Link"
+            value={form.cover}
+            onChange={handleChange}
+            disabled={loading} // Disable input while loading
+            required
+          />
+          <div className="button-create-post flex flex-row justify-center space-x-2 mt-10">
+            <Link
+              to={"/"}
+              className={`bg-white border border-black hover:bg-slate-200 text-black font-light text-sm py-2 px-4 ${
+                loading ? "btn-disabled" : ""
+              }`}
+            >
+              Cancel
+            </Link>
+            <button
+              className={`bg-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4 ${
+                loading ? "btn-disabled" : ""
+              }`}
+              type="submit"
+              disabled={loading} // Disable button while loading
+            >
+              {loading ? "Creating..." : "Create Post"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
