@@ -1,52 +1,46 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import { createPost } from "../services/api";
+import { updatePost } from "../services/api";
 
-const CreatePostPage = () => {
+const PostEdit = ({ post }) => {
   const [form, setForm] = useState({
-    author: "",
-    title: "",
-    content: "",
-    cover: "",
+    author: post.author,
+    title: post.title,
+    content: post.content,
+    cover: post.cover,
   });
-
   const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
-
-  // Handle form input changes
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  // Handle post creation
-  const handleCreate = async (e) => {
+  const handleEditPost = async (e) => {
     e.preventDefault();
     setLoading(true); // Start loading
     try {
-      await createPost(form); // Use the imported `createPost` function
-      setForm({ author: "", title: "", content: "", cover: "" });
+      await updatePost(post.id, form);
       navigate("/"); // Redirect to the Home page
-      toast.success("Post created"); // Toast success
+      toast.success("Post updated"); // Toast success
     } catch (error) {
-      console.error("Error creating post:", error);
-      toast.error("Error creating post"); // Toast error
+      console.error("Error updating post:", error);
+      toast.error("Error updating post"); // Toast error
     } finally {
       setLoading(false); // Stop loading
     }
   };
 
+  // Handle form input changes
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 h-auto pb-30">
+    <>
       <div className="max-w-md mx-auto">
-        <h2 className="text-xl font-bold mb-8 text-center">Create a Post</h2>
+        <h2 className="text-xl font-bold mb-8 text-center">
+          Edit Post "{form.title}"
+        </h2>
         <form
           className="mx-auto max-w-xl space-y-4 w-full"
-          onSubmit={handleCreate}
+          onSubmit={handleEditPost}
         >
           <div className="w-full">
             <label className="label text-sm" htmlFor="author">
@@ -93,7 +87,7 @@ const CreatePostPage = () => {
               onChange={handleChange}
               disabled={loading} // Disable input while loading
               required
-            />{" "}
+            />
           </div>
           <div className="w-full">
             <label className="label text-sm" htmlFor="cover">
@@ -127,13 +121,13 @@ const CreatePostPage = () => {
               type="submit"
               disabled={loading} // Disable button while loading
             >
-              {loading ? "Creating..." : "Create Post"}
+              {loading ? "Saving..." : "Save"}
             </button>
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
-export default CreatePostPage;
+export default PostEdit;
