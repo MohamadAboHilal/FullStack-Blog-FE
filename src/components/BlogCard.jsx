@@ -7,7 +7,7 @@ const BlogCard = ({ post }) => {
     content.length > 50 ? `${content.substring(0, 50)}...` : content;
 
   return (
-    <div className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+    <div className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
       {cover && (
         <figure className="max-h-72 overflow-hidden">
           <img
