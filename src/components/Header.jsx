@@ -11,7 +11,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex-none">
-          <Link to="/create-post" className="btn btn-neutral">
+          <Link to="/create" className="btn btn-neutral">
             + Create Post
           </Link>
         </div>
