@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="navbar px-0 pt-4">
+    <header className="navbar px-0 pt-3 border-b border-black pb-3">
       <div className="w-10/12 mx-auto">
         <div className="flex-1">
-          <Link to="/" className="text-3xl font-extrabold">
+          <Link to="/" className="text-5xl font-bold">
             blogg.
           </Link>
         </div>
         <div className="flex-none">
-          <Link to="/create" className="btn btn-neutral">
+          <Link
+            to="/create"
+            className="bg-black hover:bg-blue-700 text-white font-light text-sm py-2 px-4 rounded-lg"
+          >
             + Create Post
           </Link>
         </div>
