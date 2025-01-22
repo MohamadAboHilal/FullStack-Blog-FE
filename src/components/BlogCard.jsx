@@ -15,8 +15,7 @@ const BlogCard = ({ post }) => {
             alt={title}
             className="w-full h-full object-cover"
             onError={(e) => {
-              e.target.src =
-                "https://via.placeholder.com/400x200?text=No+Image";
+              e.target.src = "https://placehold.co/600x400?text=Cover+Image";
               e.target.alt = "Image not available";
             }}
           />
