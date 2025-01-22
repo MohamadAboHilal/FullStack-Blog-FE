@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex-none">
           <Link
             to="/create"
-            className="bg-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4 rounded-lg"
+            className="bg-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4"
           >
             + Create Post
           </Link>

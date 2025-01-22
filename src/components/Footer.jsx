@@ -11,7 +11,7 @@ const Footer = () => {
             borderColor: "#000000",
           }}
         />
-        <p className="text-xs mt-4 mb-6">© 2025 blogg. All rights reserved.</p>
+        <p className="text-xs mt-4 mb-4">© 2025 blogg. All rights reserved.</p>
       </div>
     </footer>
   );

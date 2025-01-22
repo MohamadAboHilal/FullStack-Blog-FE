@@ -9,7 +9,7 @@ const BlogCard = ({ post }) => {
   return (
     <div className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
       {cover && (
-        <figure className="max-h-72 overflow-hidden">
+        <figure className="max-h-64 overflow-hidden">
           <img
             src={cover}
             alt={title}
@@ -21,15 +21,15 @@ const BlogCard = ({ post }) => {
           />
         </figure>
       )}
-      <div className="card-body">
-        <h2 className="card-title text-lg font-bold">{title}</h2>
-        <p className="text-gray-600 text-sm">{truncatedContent}</p>
+      <div className="card-body p-0 pt-4">
+        <h2 className="card-title text-md font-bold">{title}</h2>
+        <p className="text-gray-600 text-xs">{truncatedContent}</p>
         <div className="card-actions justify-start mt-4">
           <Link
             to={`/post/${id}`}
-            className="text-sm font-regular hover:italic"
+            className="text-xs font-regular hover:italic"
           >
-            Read More ->
+            Read More &#8250;
           </Link>
         </div>
       </div>
