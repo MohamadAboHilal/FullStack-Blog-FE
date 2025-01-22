@@ -14,10 +14,6 @@ const CreatePostPage = () => {
   const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
-
   // Handle form input changes
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

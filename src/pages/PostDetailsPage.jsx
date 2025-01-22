@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom";
 import { fetchPostById } from "../services/api";
 import toast from "react-hot-toast";
 import PostEdit from "../components/PostEdit";
+import PostDelete from "../components/PostDelete";
 
 const PostDetailsPage = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null); // State to store post data
   const [loading, setLoading] = useState(true); // State for loading status
   const [edit, setEdit] = useState(false); // State for edit active status
+  const [del, setDel] = useState(false); // State for delete active status
 
   const handleDeletePost = () => {
     console.log("handleDeletePost clicked");
@@ -36,7 +38,7 @@ const PostDetailsPage = () => {
   return (
     <div className="container mx-auto m-12 px-6">
       <main className="py-8">
-        {!edit && (
+        {!edit && !del && (
           <div className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
             {post.cover && (
               <figure className="max-h-64 overflow-hidden">
@@ -63,7 +65,7 @@ const PostDetailsPage = () => {
                   Edit
                 </button>
                 <button
-                  onClick={handleDeletePost}
+                  onClick={() => setDel(true)}
                   className="text-xs font-regular hover:italic"
                 >
                   Delete
@@ -72,11 +74,8 @@ const PostDetailsPage = () => {
             </div>
           </div>
         )}
-        {edit && (
-          <>
-            <PostEdit post={post} />
-          </>
-        )}
+        {edit && <PostEdit post={post} />}
+        {del && <PostDelete post={post} />}
       </main>
     </div>
   );

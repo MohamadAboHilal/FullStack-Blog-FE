@@ -11,7 +11,6 @@ const HomePage = () => {
     const getPosts = async () => {
       try {
         const data = await fetchPosts();
-        console.log("Fetched data:", data);
         setPosts(data);
       } catch (error) {
         console.error(
