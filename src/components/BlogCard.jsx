@@ -22,12 +22,12 @@ const BlogCard = ({ post }) => {
         </figure>
       )}
       <div className="card-body p-0 pt-4">
-        <h2 className="card-title text-lg, font-bold, text-black">{title}</h2>
-        <p className="text-sm, font-bold, text-black">{truncatedContent}</p>
+        <h2 className="card-title text-md font-bold">{title}</h2>
+        <p className="text-gray-600 text-xs">{truncatedContent}</p>
         <div className="card-actions justify-start mt-4">
           <Link
             to={`/post/${id}`}
-            className="text-lg, font-bold, text-black hover:italic"
+            className="text-xs font-regular hover:italic"
           >
             Read More &#8250;
           </Link>

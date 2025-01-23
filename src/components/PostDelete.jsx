@@ -25,7 +25,7 @@ const PostDelete = ({ post }) => {
   return (
     <>
       <div className="max-w-md mx-auto bg-white">
-        <h2 className="text-xl font-bold text-black mb-8 text-center">
+        <h2 className="text-xl font-bold mb-8 text-center">
           Delete Post "{post.title}"
         </h2>
         <p className="text-lg text-red-600 font-bold mb-8 text-center">
@@ -35,14 +35,14 @@ const PostDelete = ({ post }) => {
           <div className="button-create-post flex flex-row justify-center space-x-2">
             <Link
               to={"/"}
-              className={`bg-white border border-black hover:bg-zinc-300 text-black font-light text-sm py-2 px-4 ${
+              className={`bg-white border border-black hover:bg-slate-200 text-black font-light text-sm py-2 px-4 ${
                 loading ? "btn-disabled" : ""
               }`}
             >
               Cancel
             </Link>
             <button
-              className={`bg-black hover:bg-zinc-700 text-white font-light text-sm py-2 px-4 ${
+              className={`bg-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4 ${
                 loading ? "btn-disabled" : ""
               }`}
               type="submit"

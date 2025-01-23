@@ -33,16 +33,14 @@ const HomePage = () => {
   return (
     <div className="container mx-auto m-12 px-6 pb-12">
       <main className="py-8 bg-white">
-        <h1 className="text-4xl font-bold mb-4 text-center font-bold, text-black">
+        <h1 className="text-4xl font-bold mb-4 text-center">
           Your Sports Blog Daily Posts
         </h1>
-        <p className="mb-8 text-center text-base font-light, text-black">
+        <p className="mb-8 text-center text-xs font-light">
           Stay updated with the latest sports news, in-depth analysis, and
           compelling stories from the world of athletics.
         </p>
-        {isLoading && (
-          <div className="text-center text-black text-lg">Loading...</div>
-        )}
+        {isLoading && <div className="text-center">Loading...</div>}
         {error && (
           <div className="text-center text-red-500">Error: {error}</div>
         )}
