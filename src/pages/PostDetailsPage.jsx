@@ -39,13 +39,13 @@ const PostDetailsPage = () => {
     <div className="container mx-auto m-12 px-6 bg-white">
       <main className="py-8 bg-white">
         {!edit && !del && (
-          <div className="card w-full bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
+          <div className="card w-full  bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none font-bold, text-black">
             {post.cover && (
-              <figure className="max-h-64 overflow-hidden">
+              <figure className="max-h-96 overflow-hidden ">
                 <img
                   src={post.cover}
                   alt={post.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-fill"
                   onError={(e) => {
                     e.target.src =
                       "https://placehold.co/600x400?text=Cover+Image";
@@ -56,17 +56,17 @@ const PostDetailsPage = () => {
             )}
             <div className="card-body p-0 pt-4">
               <h2 className="card-title text-md font-bold">{post.title}</h2>
-              <p className="text-gray-600 text-xs">{post.content}</p>
+              <p className="font-bold, text-black">{post.content}</p>
               <div className="card-actions justify-start mt-4">
                 <button
                   onClick={() => setEdit(true)}
-                  className="text-xs font-regular hover:italic"
+                  className="text-sm font-regular hover:italic hover:text-sky-500"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => setDel(true)}
-                  className="text-xs font-regular hover:italic"
+                  className="text-sm font-regular hover:italic hover:text-red-600"
                 >
                   Delete
                 </button>
