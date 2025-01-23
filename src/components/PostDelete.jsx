@@ -42,7 +42,7 @@ const PostDelete = ({ post }) => {
               Cancel
             </Link>
             <button
-              className={`bg-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4 ${
+              className={`bg-red-600 hover:bg-red-200 hover:text-black text-white font-light text-sm py-2 px-4 ${
                 loading ? "btn-disabled" : ""
               }`}
               type="submit"

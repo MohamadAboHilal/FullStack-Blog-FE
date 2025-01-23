@@ -32,7 +32,7 @@ const PostDetailsPage = () => {
   if (!post) return <div>No post found</div>; // Handle case where no post is found
 
   return (
-    <div className="container mx-auto m-12 px-6 bg-white">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 h-auto pb-30 bg-white">
       <main className="py-8 bg-white">
         <Link to={"/"} className="text-xs font-regular hover:italic">
           &#60; All Posts
@@ -57,7 +57,7 @@ const PostDetailsPage = () => {
               </figure>
             )}
             <div className="card-body p-0 pt-4">
-              <p className="text-gray-600 text-xs">{post.content}</p>
+              <p className="text-gray-600 text-wrap text-sm">{post.content}</p>
               <hr className="border-1 border-gray-700 mt-8" />
               <h3 className="text-center text-sm font-semibold my-8">
                 Author: {post.author}
@@ -65,7 +65,7 @@ const PostDetailsPage = () => {
               <div className="card-actions justify-center mt-4">
                 <button
                   onClick={() => setDel(true)}
-                  className="bg-white border border-black hover:bg-slate-200 text-black font-light text-sm py-2 px-4"
+                  className="bg-white border border-red-600 hover:bg-red-200 hover:text-black text-red-600 font-light text-sm py-2 px-4"
                 >
                   Delete
                 </button>

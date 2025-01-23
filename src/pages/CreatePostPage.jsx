@@ -107,7 +107,7 @@ const CreatePostPage = () => {
               required
             />
           </div>
-          <div className="button-create-post flex flex-row justify-center space-x-2">
+          <div className="button-create-post flex flex-row justify-center space-x-2 pb-20">
             <Link
               to={"/"}
               className={`bg-white border border-black hover:bg-slate-200 text-black font-light text-sm py-2 px-4 ${

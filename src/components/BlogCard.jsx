@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BlogCard = ({ post }) => {
   const { id, title, content, cover } = post;
   const truncatedContent =
-    content.length > 50 ? `${content.substring(0, 50)}...` : content;
+    content.length > 100 ? `${content.substring(0, 100)}...` : content;
 
   return (
     <div className="card w-full shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none bg-white">
