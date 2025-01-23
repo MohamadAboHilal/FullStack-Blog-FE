@@ -31,8 +31,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto m-12 px-6">
-      <main className="py-8">
+    <div className="container mx-auto m-12 px-6 pb-12">
+      <main className="py-8 bg-white">
         <h1 className="text-4xl font-bold mb-4 text-center">
           Your Sports Blog Daily Posts
         </h1>

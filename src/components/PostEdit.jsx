@@ -34,7 +34,7 @@ const PostEdit = ({ post }) => {
   };
   return (
     <>
-      <div className="max-w-md mx-auto">
+      <div className="max-w-md mx-auto bg-white pb-24">
         <h2 className="text-xl font-bold mb-8 text-center">
           Edit Post "{form.title}"
         </h2>
