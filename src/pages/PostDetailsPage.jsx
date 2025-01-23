@@ -36,10 +36,10 @@ const PostDetailsPage = () => {
   if (!post) return <div>No post found</div>; // Handle case where no post is found
 
   return (
-    <div className="container mx-auto m-12 px-6">
-      <main className="py-8">
+    <div className="container mx-auto m-12 px-6 bg-white">
+      <main className="py-8 bg-white">
         {!edit && !del && (
-          <div className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
+          <div className="card w-full bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
             {post.cover && (
               <figure className="max-h-64 overflow-hidden">
                 <img

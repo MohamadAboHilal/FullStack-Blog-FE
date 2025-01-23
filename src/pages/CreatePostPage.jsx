@@ -37,7 +37,7 @@ const CreatePostPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 h-auto pb-30">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 h-auto pb-30 bg-white">
       <div className="max-w-md mx-auto">
         <h2 className="text-xl font-bold mb-8 text-center">Create a Post</h2>
         <form
