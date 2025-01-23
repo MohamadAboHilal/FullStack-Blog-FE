@@ -39,17 +39,22 @@ const CreatePostPage = () => {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 h-auto pb-30 bg-white">
       <div className="max-w-md mx-auto">
-        <h2 className="text-xl font-bold mb-8 text-center">Create a Post</h2>
+        <h2 className="text-xl font-bold text-black mb-8 text-center">
+          Create a Post
+        </h2>
         <form
           className="mx-auto max-w-xl space-y-4 w-full"
           onSubmit={handleCreate}
         >
           <div className="w-full">
-            <label className="label text-sm" htmlFor="author">
+            <label
+              className="label text-sm font-bold, text-black"
+              htmlFor="author"
+            >
               Author
             </label>
             <input
-              className="input input-bordered w-full rounded-none border-slate-700"
+              className="input input-bordered w-full font-bold, rounded-none border-slate-700"
               id="author"
               type="text"
               name="author"
@@ -60,7 +65,10 @@ const CreatePostPage = () => {
             />{" "}
           </div>
           <div className="w-full">
-            <label className="label text-sm" htmlFor="title">
+            <label
+              className="label text-sm font-bold, text-black"
+              htmlFor="title"
+            >
               Title
             </label>
             <input
@@ -76,7 +84,10 @@ const CreatePostPage = () => {
             />
           </div>
           <div className="w-full">
-            <label className="label text-sm" htmlFor="content">
+            <label
+              className="label text-sm font-bold, text-black"
+              htmlFor="content"
+            >
               Content
             </label>
             <textarea
@@ -92,7 +103,10 @@ const CreatePostPage = () => {
             />{" "}
           </div>
           <div className="w-full">
-            <label className="label text-sm" htmlFor="cover">
+            <label
+              className="label text-sm font-bold, text-black"
+              htmlFor="cover"
+            >
               Cover Image
             </label>
             <input
@@ -110,14 +124,14 @@ const CreatePostPage = () => {
           <div className="button-create-post flex flex-row justify-center space-x-2">
             <Link
               to={"/"}
-              className={`bg-white border border-black hover:bg-slate-200 text-black font-light text-sm py-2 px-4 ${
+              className={`bg-white border border-black hover:bg-zinc-300 text-black font-light text-sm py-2 px-4 ${
                 loading ? "btn-disabled" : ""
               }`}
             >
               Cancel
             </Link>
             <button
-              className={`bg-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4 ${
+              className={`bg-black hover:bg-zinc-700 text-white font-light text-sm py-2 px-4 ${
                 loading ? "btn-disabled" : ""
               }`}
               type="submit"

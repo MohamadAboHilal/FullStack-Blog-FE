@@ -41,13 +41,13 @@ const PostDetailsPage = () => {
           {post.title}
         </h2>
         {!edit && !del && (
-          <div className="card w-full bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
+          <div className="card w-full  bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none font-bold, text-black">
             {post.cover && (
-              <figure className="max-h-64 overflow-hidden">
+              <figure className="max-h-96 overflow-hidden ">
                 <img
                   src={post.cover}
                   alt={post.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-fill"
                   onError={(e) => {
                     e.target.src =
                       "https://placehold.co/600x400?text=Cover+Image";
@@ -57,6 +57,12 @@ const PostDetailsPage = () => {
               </figure>
             )}
             <div className="card-body p-0 pt-4">
+              <h2 className="card-title text-md font-bold">{post.title}</h2>
+              <p className="font-bold, text-black">{post.content}</p>
+              <div className="card-actions justify-start mt-4">
+                <button
+                  onClick={() => setEdit(true)}
+                  className="text-sm font-regular hover:italic hover:text-sky-500"
               <p className="text-gray-600 text-xs">{post.content}</p>
               <hr className="border-1 border-gray-700 mt-8" />
               <h3 className="text-center text-sm font-semibold my-8">
@@ -70,6 +76,8 @@ const PostDetailsPage = () => {
                   Delete
                 </button>
                 <button
+                  onClick={() => setDel(true)}
+                  className="text-sm font-regular hover:italic hover:text-red-600"
                   onClick={() => setEdit(true)}
                   className="bg-black border border-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4"
                 >
