@@ -31,12 +31,12 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto m-12 px-6 pb-12">
+    <div className="container mx-auto m-12 px-6 pb-30">
       <main className="py-8 bg-white">
         <h1 className="text-4xl font-bold mb-4 text-center">
           Your Sports Blog Daily Posts
         </h1>
-        <p className="mb-8 text-center text-xs font-light">
+        <p className="mb-12 text-center text-xs font-light">
           Stay updated with the latest sports news, in-depth analysis, and
           compelling stories from the world of athletics.
         </p>
