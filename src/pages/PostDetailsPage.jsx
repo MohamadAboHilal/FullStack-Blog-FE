@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchPostById } from "../services/api";
 import toast from "react-hot-toast";
 import PostEdit from "../components/PostEdit";
@@ -11,10 +11,6 @@ const PostDetailsPage = () => {
   const [loading, setLoading] = useState(true); // State for loading status
   const [edit, setEdit] = useState(false); // State for edit active status
   const [del, setDel] = useState(false); // State for delete active status
-
-  const handleDeletePost = () => {
-    console.log("handleDeletePost clicked");
-  };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -38,6 +34,12 @@ const PostDetailsPage = () => {
   return (
     <div className="container mx-auto m-12 px-6 bg-white">
       <main className="py-8 bg-white">
+        <Link to={"/"} className="text-xs font-regular hover:italic">
+          &#60; All Posts
+        </Link>
+        <h2 className="card-title text-2xl font-bold mt-5 mb-5">
+          {post.title}
+        </h2>
         {!edit && !del && (
           <div className="card w-full bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-none">
             {post.cover && (
@@ -55,20 +57,23 @@ const PostDetailsPage = () => {
               </figure>
             )}
             <div className="card-body p-0 pt-4">
-              <h2 className="card-title text-md font-bold">{post.title}</h2>
               <p className="text-gray-600 text-xs">{post.content}</p>
-              <div className="card-actions justify-start mt-4">
-                <button
-                  onClick={() => setEdit(true)}
-                  className="text-xs font-regular hover:italic"
-                >
-                  Edit
-                </button>
+              <hr className="border-1 border-gray-700 mt-8" />
+              <h3 className="text-center text-sm font-semibold my-8">
+                Author: {post.author}
+              </h3>
+              <div className="card-actions justify-center mt-4">
                 <button
                   onClick={() => setDel(true)}
-                  className="text-xs font-regular hover:italic"
+                  className="bg-white border border-black hover:bg-slate-200 text-black font-light text-sm py-2 px-4"
                 >
                   Delete
+                </button>
+                <button
+                  onClick={() => setEdit(true)}
+                  className="bg-black border border-black hover:bg-slate-700 text-white font-light text-sm py-2 px-4"
+                >
+                  Edit
                 </button>
               </div>
             </div>
