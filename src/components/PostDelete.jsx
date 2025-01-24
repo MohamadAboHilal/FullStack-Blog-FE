@@ -24,7 +24,7 @@ const PostDelete = ({ post }) => {
 
   return (
     <>
-      <div className="max-w-md mx-auto bg-white">
+      <div className="max-w-md mx-auto bg-white mt-5">
         <h2 className="text-xl font-bold mb-8 text-center">
           Delete Post "{post.title}"
         </h2>
