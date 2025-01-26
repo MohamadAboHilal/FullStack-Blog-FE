@@ -1,32 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchPostById } from "../services/api";
+import { PostContext } from "../context/PostContext";
+import { fetchPostById } from "../services/api.js";
 import toast from "react-hot-toast";
 import PostEdit from "../components/PostEdit";
 import PostDelete from "../components/PostDelete";
 
 const PostDetailsPage = () => {
   const { id } = useParams();
+  const { posts } = useContext(PostContext);
   const [post, setPost] = useState(null); // State to store post data
   const [loading, setLoading] = useState(true); // State for loading status
   const [edit, setEdit] = useState(false); // State for edit active status
   const [del, setDel] = useState(false); // State for delete active status
 
   useEffect(() => {
-    const fetchPost = async () => {
+    const getPost = async () => {
       try {
-        const data = await fetchPostById(id); // Fetch post by ID
+        const data = await fetchPostById(id);
         setPost(data); // Update state with post data
         setLoading(false); // Update loading state
       } catch (error) {
-        console.error("Error getting post:", error);
+        console.error("Error fetching post:", error);
         toast.error("Error getting post"); // Display toast error
         setLoading(false); // Update loading state
       }
     };
 
-    fetchPost(); // Invoke the fetchPost function
-  }, [id]);
+    // check if post already in context
+    const postFromContext = posts.find((p) => p.id === parseInt(id));
+    if (postFromContext) {
+      setPost(postFromContext);
+      setLoading(false);
+    } else {
+      getPost();
+    }
+  }, [id, posts]);
 
   if (loading) return <div>Loading...</div>; // Show loading state
   if (!post) return <div>No post found</div>; // Handle case where no post is found
