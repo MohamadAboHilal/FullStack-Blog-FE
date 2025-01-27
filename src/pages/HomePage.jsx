@@ -1,34 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { fetchPosts } from "../services/api";
+import React, { useState, useContext } from "react";
+import { PostContext } from "../context/PostContext";
 import BlogCard from "../components/BlogCard";
 
 const HomePage = () => {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { posts, loading } = useContext(PostContext);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const data = await fetchPosts();
-        setPosts(data);
-      } catch (error) {
-        console.error(
-          "Error fetching posts:",
-          error.response?.data || error.message
-        );
-        setError(
-          error.response?.data?.message ||
-            error.message ||
-            "An error occurred while fetching posts."
-        );
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getPosts();
-  }, []);
 
   return (
     <div className="container mx-auto m-12 px-6 pb-30">
@@ -40,11 +16,11 @@ const HomePage = () => {
           Stay updated with the latest sports news, in-depth analysis, and
           compelling stories from the world of athletics.
         </p>
-        {isLoading && <div className="text-center">Loading...</div>}
+        {loading && <div className="text-center">Loading...</div>}
         {error && (
           <div className="text-center text-red-500">Error: {error}</div>
         )}
-        {!isLoading && !error && (
+        {!loading && !error && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-12 gap-x-12">
             {posts.length === 0 ? (
               <p className="col-span-full text-center">No posts found.</p>
